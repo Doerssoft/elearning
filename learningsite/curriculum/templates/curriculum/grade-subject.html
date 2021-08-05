@@ -1,0 +1,53 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid contact-hero">
+    <div class="row">
+        <div class="col-12">
+            <h2>{{ grade.grade }}<h2>
+                    <p>Welcome to {{ grade.grade }} subjects section. These are the subjects for {{ grade.grade }}. Please view the
+                        syllabus of the subject you want.
+                    </p>
+        </div>
+    </div>
+</div>
+
+{% if context %}
+
+<div class="container subject-container mb-5">
+
+    {% for x in context %}
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne{{ x.id }}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne{{x.id}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                    {{x.subject_name}}
+                </button>
+            </h2>
+            <div id="flush-collapseOne{{ x.id }}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    {{ x.syllabus|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% else %}
+<div class="container subject-container mb-5 text-center">
+
+    <div class="spinner-grow text-center" role="status">
+    </div>
+
+    <div class="">No an subject has been added by the admin to this grade.</div>
+</div>
+
+
+{% endif %}
+
+{% endblock %}
