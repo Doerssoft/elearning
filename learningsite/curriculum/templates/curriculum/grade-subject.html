@@ -1,13 +1,18 @@
 {% extends 'user/base.html' %}
 {% load static %}
+{% load humanize %}
+{% load extras %}
 
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <div class="container-fluid contact-hero">
     <div class="row">
         <div class="col-12">
             <h2>{{ grade.grade }}<h2>
-                    <p>Welcome to {{ grade.grade }} subjects section. These are the subjects for {{ grade.grade }}. Please view the
+                    <p>Welcome to {{ grade.grade }} subjects section. These are the subjects for {{ grade.grade }}.
+                        Please view the
                         syllabus of the subject you want.
                     </p>
         </div>
@@ -44,10 +49,77 @@
     <div class="spinner-grow text-center" role="status">
     </div>
 
-    <div class="">No an subject has been added by the admin to this grade.</div>
+    <div class="">No any subject has been added by the admin to this grade.</div>
 </div>
 
 
 {% endif %}
+
+<div class="container">
+    <h2>Comments</h2>
+    <form action="/curriculum/gradeComment" method="post" style="min-height:fit-content !important">
+        {% csrf_token %}
+        <input type="text" name="comment" placeholder="Enter Your Comment" required>
+        <input type="hidden" name="gradeid" value="{{ grade.id }}">
+        <input type="hidden" name="parentSno" value="">
+        <input type="submit" value="Submit" class="btn btn-primary">
+
+    </form>
+
+    {% for comment in comments %}
+
+    <div class="row my-4 mx-2">
+        <div class="col-md-4">
+
+            <span class="badge rounded-pill bg-primary">{{ comment.user.username }}</span>
+            <span class="">{{ comment.timestamp | naturaltime }}</span>
+        </div>
+        <div class="col-md-8 alert alert-primary">{{ comment.comment }}</div>
+
+        <div class="row reply">
+            {% if user.is_staff %}
+            <div class="col-md-5">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample{{ comment.id }}" aria-expanded="false"
+                    aria-controls="collapseExample{{ comment.id }}">
+                    Reply <i class="fa fa-sort-down"></i>
+                </button>
+            </div>
+
+            {% else %}
+
+            <div class="col-md-5">
+               
+            </div>
+
+            {% endif %}
+
+            <div class="collapse" id="collapseExample{{ comment.id }}">
+                <div class="card card-body my-2">
+                    <form action="/curriculum/gradeComment" method="post" style="min-height:fit-content !important">
+                        {% csrf_token %}
+                        <input type="text" name="comment" placeholder="Enter Your Comment" required>
+                        <input type="hidden" name="gradeid" value="{{ grade.id }}">
+                        <input type="hidden" name="parentSno" value="{{ comment.id }}">
+                        <input type="submit" class="btn btn-success" value="Submit">
+
+                    </form>
+                </div>
+            </div>
+
+            {% if replyDict|get_val:comment.id %}
+            <div class="col-md-7 alert alert-secondary" role="alert">
+                {% for reply in replyDict|get_val:comment.id %}
+                {{ reply }} <br>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+
 
 {% endblock %}

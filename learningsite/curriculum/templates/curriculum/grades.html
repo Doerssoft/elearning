@@ -12,6 +12,7 @@
         </div>
     </div>
 </div>
+{% if context %}
 
 <div class="container grades-container">
     <div class="row my-grades">
@@ -62,5 +63,15 @@
         </div> -->
     </div>
 </div>
+{% else %}
+<div class="container subject-container mb-5 text-center">
+
+    <div class="spinner-grow text-center" role="status">
+    </div>
+
+    <div class="">No any Grades has been added by the admin.</div>
+</div>
+
+{% endif %}
 
 {% endblock %}

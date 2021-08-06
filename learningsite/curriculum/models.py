@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 
 class Grade(models.Model):
     grade = models.CharField(max_length=20)
@@ -15,3 +16,15 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.subject_name
+
+
+class GradeComment(models.Model):
+    comment = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.comment + " - By " + self.user.username
+
