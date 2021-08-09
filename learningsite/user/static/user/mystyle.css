@@ -1,44 +1,44 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
-
 
 /* ----------------------------------------------------------------
                 Navbar related CSS Only
 ------------------------------------------------------------------- */
-nav{
+
+nav {
     z-index: 99;
     position: sticky;
 }
 
-.bg-blue{
+.bg-blue {
     background: rgb(101, 166, 241);
 }
 
-.navbar-brand{
+.navbar-brand {
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.456);
     font-weight: 900;
 }
 
-.nav-link{
+.nav-link {
     color: #ffffff !important;
 }
 
-.active{
+.active {
     color: #000000 !important;
     font-weight: bolder;
 }
 
-.user{
-    border-bottom:1px solid black;
+.user {
+    border-bottom: 1px solid black;
     width: fit-content;
-    padding:4px 0px !important;
+    padding: 4px 0px !important;
     margin-right: 12px;
 }
 
-@media (min-width: 991px){
-    span.navbar-text{
+@media (min-width: 991px) {
+    span.navbar-text {
         margin-left: 24px;
     }
 }
@@ -46,39 +46,40 @@ nav{
 /* --------------------------------------------------------------------
                     Hero Section CSS Only
 ----------------------------------------------------------------------- */
-.my-btn{
+
+.my-btn {
     border-radius: 24px;
     box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.456);
     padding: 12px;
     transition: 0.68s all;
 }
 
-.my-btn:hover{
+.my-btn:hover {
     box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.456);
     transition: 0.68s all;
 }
 
-a.my-btn{
+a.my-btn {
     text-decoration: none;
 }
 
-.bg-image{
+.bg-image {
     /* background-image: url('learning-hero.jpg'); */
-    background:black;
+    background: black;
     overflow: hidden;
 }
 
-.hero-center{
+.hero-center {
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
-.hero-center p{
+.hero-center p {
     color: #ffffff;
-    font-size: 200%;
+    font-size: 150%;
     font-weight: bolder;
     margin-bottom: 24px;
 }
@@ -93,12 +94,12 @@ a.my-btn{
     opacity: 0.4556;
 } */
 
-.hero-image{
+.hero-image {
     width: 100%;
-    height:90vh;
+    height: 90vh;
 }
 
-p.offer{
+p.offer {
     color: #000000;
     font-size: 200%;
     text-align: center;
@@ -109,7 +110,7 @@ p.offer{
     font-weight: bolder;
 }
 
-p.offer-text{
+p.offer-text {
     color: #000000;
     font-size: 125%;
     text-align: center;
@@ -117,14 +118,15 @@ p.offer-text{
     margin-bottom: 124px;
 }
 
-.my-cards{
+.my-cards {
     margin: 24px auto 124px auto;
 }
+
 /* ---------------------------------------------------------------
                 Footer CSS Only
 ------------------------------------------------------------------ */
 
-footer{
+footer {
     text-align: center;
     background: black;
     color: #ffffff;
@@ -133,74 +135,75 @@ footer{
     align-items: center;
 }
 
-.foot-row p{
-    margin-bottom:0 !important;
+.foot-row p {
+    margin-bottom: 0 !important;
 }
 
 /* ---------------------------------------------------------------------
                 Contact Page CSS Only
 ------------------------------------------------------------------------ */
-.contact-hero{
+
+.contact-hero {
     width: 100%;
     min-height: 50vh;
-    background:#ffffff;
-    text-align:center;
+    background: #ffffff;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.contact-hero p{
+.contact-hero p {
     font-size: 70%;
     font-weight: normal;
     padding: 12px 24px;
     font-style: italic;
 }
 
-.contact-map{
+.contact-map {
     position: relative;
     margin-bottom: 124px;
 }
 
-.my-form{
+.my-form {
     position: absolute;
     top: -10%;
-    right:10%;
+    right: 10%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     background: #ffffff;
     padding: 24px;
-    border-radius: 12px;    
+    border-radius: 12px;
 }
 
-textarea{
+textarea {
     width: 100%;
 }
 
-@media (max-width:767px){
-    .my-form{
+@media (max-width:767px) {
+    .my-form {
         position: relative;
         top: 10%;
-        left:0;
+        left: 0;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
         background: #ffffff;
         padding: 24px;
-        border-radius: 12px;    
+        border-radius: 12px;
     }
 }
 
-form{
+form {
     min-height: 400px;
 }
 
-form input{
+form input {
     border: none;
     border-bottom: 1px solid gray;
     width: 100%;
     margin: 6px 0px;
 }
 
-.send-btn{
-    border:none;
+.send-btn {
+    border: none;
     padding: 6px 24px;
     border-radius: 24px;
     background: #000000;
@@ -210,27 +213,28 @@ form input{
 /* --------------------------------------------------------------
                     Grades CSS Only
 ----------------------------------------------------------------- */
-.grade{
-    padding:24px;
+
+.grade {
+    padding: 24px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    height:125px;
+    height: 125px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
     min-height: 25vh;
 }
 
-.grade:hover{
+.grade:hover {
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.my-grades{
+.my-grades {
     margin-bottom: 125px;
 }
 
@@ -238,54 +242,72 @@ a{
             Subjects Accordian CSS Only
 ------------------------------------------------------- */
 
-.subject-container{
-    min-height: 50vh;
+.subject-container {
+    min-height: 20vh;
 }
 
-.accordion-flush .accordion-item:last-child{
+.accordion-flush .accordion-item:last-child {
     border-bottom: 2px solid gray !important;
 }
 
 /* -----------------------------------------------------------
                     LoginPage CSS Only
 -------------------------------------------------------------- */
-#form-section{
+
+#form-section {
     position: relative;
     background-image: linear-gradient(to right, #03072b, #034a8c);
-    height:100vh;
+    height: 100vh;
 }
 
-#form-section form{
+#form-section form {
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background: #ffffff;
-    padding:  54px;
+    padding: 54px;
     border-radius: 12px;
     min-height: fit-content !important;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
-.font-weight-bold{
+@media only screen and (max-width: 600px) {
+    #form-section form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        padding: 554px;
+        border-radius: 12px;
+        min-height: fit-content !important;
+        width: 50vw;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    }
+}
+ 
+    
+
+.font-weight-bold {
     font-weight: bold;
 }
 
-input#login-submit-btn{
+input#login-submit-btn {
     border: none;
     border-radius: 24px;
     background: black;
     color: #ffffff;
-    padding:12px 6px;
+    padding: 12px 6px;
     transition: 0.456s all;
 }
 
-input#login-submit-btn:hover{
+input#login-submit-btn:hover {
     background: rgb(7, 5, 136);
     transition: 0.456s all;
 }
 
-input:hover{
+input:hover {
     outline: none;
     border-top: none;
     border-left: none;
@@ -295,15 +317,16 @@ input:hover{
 /* -------------------------------------------------------
             Register Page CSS Only
 ---------------------------------------------------------- */
-#submit-btn{
+
+#submit-btn {
     border: none;
     border-radius: 24px;
     background: black;
     color: #ffffff;
-    padding:12px 6px;
+    padding: 12px 6px;
 }
 
-input#submit-btn:hover{
+input#submit-btn:hover {
     background: rgb(7, 5, 136);
     transition: 0.456s all;
 }

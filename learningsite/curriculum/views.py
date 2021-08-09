@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Grade,Subject,GradeComment
+from .models import Grade,Subject,GradeComment,ImageVideo
 from django.contrib.auth.decorators import login_required
 from curriculum.templatetags import extras
 
@@ -15,6 +15,7 @@ def grades_subjects(request, grade_id):
     template_name = 'curriculum/grade-subject.html'
     grade= Grade.objects.get(id=grade_id)
     subjects= Subject.objects.filter(grade=grade_id)
+    image_video = ImageVideo.objects.filter(grade=grade_id)
     comments = GradeComment.objects.filter(grade=grade, parent=None)
     replies = GradeComment.objects.filter(grade=grade).exclude(parent=None)
     rDict = {}
@@ -23,9 +24,7 @@ def grades_subjects(request, grade_id):
             rDict[reply.parent.id] = [reply]
         else:
             rDict[reply.parent.id].append(reply)
-    print('rDict')
-    print(rDict)
-    return render(request, template_name, {'context': subjects, 'grade':grade, 'comments': comments, 'replyDict': rDict})
+    return render(request, template_name, {'context': subjects, 'grade':grade, 'comments': comments, 'replyDict': rDict, 'image_video': image_video})
 
 def gradeComment(request):
     if request.method=="POST":
